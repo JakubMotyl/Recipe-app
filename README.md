@@ -2,6 +2,8 @@
 
 A small React + Vite demo showcasing a recipe / menu layout with TailwindCSS and TheMealDB integration.
 
+Website: [Recipe App](https://recipe-app-eight-pied.vercel.app/)
+
 ## Features
 - Clean, responsive UI built with React components: [`App`](src/App.jsx), [`Home`](src/pages/Home.jsx), [`Navbar`](src/components/Navbar.jsx), [`Footer`](src/components/Footer.jsx).  
 - Menu browsing powered by TheMealDB via API helpers: [`fetchCategories`](src/data/api.js), [`fetchRandomMeal`](src/data/api.js), [`fetchMealsByCategory`](src/data/api.js).  
