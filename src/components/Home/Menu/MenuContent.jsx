@@ -37,12 +37,18 @@ const MealSpecs = ({ meal, onClose }) => {
     const ingredient = meal[`strIngredient${i}`];
     const measure = meal[`strMeasure${i}`];
     if (ingredient && ingredient.trim() !== '') {
-      ingredients.push(`${measure} ${ingredient}`);
+      ingredients.push(`${measure || ''} ${ingredient}`);
     }
   }
 
+  const hasIngredients = ingredients.length > 0;
+
   // Steps
-  const steps = meal.strInstructions.split('\n')
+  const steps = meal.strInstructions
+    ? meal.strInstructions.split('\n')
+    : [];
+
+  const hasInstructions = steps.length > 0;
 
   return (
     <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/40 backdrop-blur-sm px-2">
@@ -78,7 +84,7 @@ const MealSpecs = ({ meal, onClose }) => {
               {meal.strMeal}
             </p>
             <span className="text-white font-light md:text-[1.15rem] text-[0.9rem]">
-              {meal.strArea} • {meal.strCategory}
+              {meal.strArea || 'Unknown'} • {meal.strCategory || 'Uncategorized'}
             </span>
           </div>
 
@@ -106,14 +112,20 @@ const MealSpecs = ({ meal, onClose }) => {
             {/* Scrollable list */}
             <div className="flex-1 overflow-y-auto pr-2">
               {showIngredients ? (
-                <ul className="popup-ul">
-                  {ingredients.map((ing, index) => (
-                    <li key={index} className="popup-li-item">
-                      {ing}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
+                hasIngredients ? (
+                  <ul className="popup-ul">
+                    {ingredients.map((ing, index) => (
+                      <li key={index} className="popup-li-item">
+                        {ing}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-center text-gray-500 italic">
+                    No ingredients available.
+                  </p>
+                )
+              ) : hasInstructions ? (
                 <ul className="popup-ul">
                   {steps.map((step, index) => (
                     <li key={index} className="popup-li-item">
@@ -122,6 +134,10 @@ const MealSpecs = ({ meal, onClose }) => {
                     </li>
                   ))}
                 </ul>
+              ):(
+                <p className="text-center text-gray-500 italic">
+                  No instructions available.
+                </p>
               )}
             </div>
           </div>
