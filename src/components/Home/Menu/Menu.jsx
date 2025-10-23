@@ -14,7 +14,7 @@ export default function Menu() {
       const promises = Array.from({length: 8}, () => fetchRandomMeal());
       const results = await Promise.all(promises);
       const randomMeals = results.map(m => m.meals[0]);
-      // console.log(randomMeals)
+      console.log(randomMeals)
       setMeals(randomMeals); 
     } else {
       const data = await fetchMealsByCategory(category);
