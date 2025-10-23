@@ -129,7 +129,6 @@ const MealSpecs = ({ meal, onClose }) => {
                 <ul className="popup-ul">
                   {steps.map((step, index) => (
                     <li key={index} className="popup-li-item">
-                      <span className='font-medium'>{index + 1}</span>
                       <p>{step}</p>
                     </li>
                   ))}
