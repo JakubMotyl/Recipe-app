@@ -52,7 +52,7 @@ const MealSpecs = ({ meal, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/40 backdrop-blur-sm px-2 overflow-y-auto md:overflow-hidden overscroll-contain">
       {/* Popup container */}
-      <div className="bg-white rounded w-full md:w-4/5 lg:w-3/4 xl:w-2/3 max-h-[90vh] overflow-hidden md:flex md:flex-row flex-col relative overscroll-contain">
+      <div className="bg-white rounded w-full md:w-4/5 lg:w-3/4 xl:w-2/3 max-h-[calc(100dvh-2rem)] overflow-hidden md:flex md:flex-row flex-col relative overscroll-contain">
         {/* Close Button */}
         <button
           className="absolute top-2 right-2 cursor-pointer text-red-600 hover:text-red-500 md:text-[1.5rem] text-[1.25rem] z-20"
