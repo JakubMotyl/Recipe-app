@@ -55,7 +55,7 @@ const MealSpecs = ({ meal, onClose }) => {
       <div className="bg-white rounded w-full md:w-4/5 lg:w-3/4 xl:w-2/3 max-h-[90vh] overflow-hidden md:flex md:flex-row flex-col relative overscroll-contain">
         {/* Close Button */}
         <button
-          className="absolute top-2 right-2 cursor-pointer text-red-600 hover:text-red-500 md:text-[1.5rem] text-[1.25rem] z-10"
+          className="absolute top-2 right-2 cursor-pointer text-red-600 hover:text-red-500 md:text-[1.5rem] text-[1.25rem] z-20"
           onClick={onClose}
         >
           <i className="fa-solid fa-square-xmark"></i>
